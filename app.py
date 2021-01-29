@@ -29,11 +29,11 @@ def main():
 
     		# Now do something with the image! For example, let's display it:
     		st.image(opencv_image, channels="BGR")
-		imagee()
+		imagee(opencv_image)
 st.text(new_model)
 
 def imagee(opencv_image)
-	images = image.load_img(open_cv, target_size=(128, 128))    
+	images = image.load_img(opencv_image, target_size=(128, 128))    
 	x = image.img_to_array(images)
 	x = tf.image.rgb_to_grayscale(x)
 	x = np.expand_dims(x, axis=0)
