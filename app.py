@@ -4,6 +4,8 @@ import numpy as np
 import keras
 from tensorflow.keras.preprocessing import image
 import tensorflow as tf
+import numpy as np 
+from PIL import Image as im 
 
 PAGE_CONFIG = {"page_title":"Arsya.io","page_icon":":smiley:","layout":"centered"}
 st.set_page_config(**PAGE_CONFIG)
@@ -27,12 +29,15 @@ def main():
 		file_bytes=np.asarray(ba,dtype=np.uint8)
 		opencv_image=cv2.imdecode(file_bytes,1)
 		st.image(opencv_image,channels="BGR")
-		imagee(file_bytes)    		
+		array = np.arange(file_bytes, np.uint8) 
+		array = np.reshape(array, (128,128))
+		data = im.fromarray(array)
+		imagee(data)    		
 
 
-def imagee(file_bytes):
-	images = image.load_img(file_bytes, target_size=(128, 128))    
-	x = image.img_to_array(images)
+def imagee(data):
+	#images = image.load_img(file_bytes, target_size=(128, 128))    
+	x = image.img_to_array(data)
 	x = tf.image.rgb_to_grayscale(x)
 	x = np.expand_dims(x, axis=0)
 	x = x/255.0
