@@ -2,6 +2,8 @@ import streamlit as st
 import cv2
 import numpy as np
 import keras
+from tensorflow.keras.preprocessing import image
+import tensorflow as tf
 
 PAGE_CONFIG = {"page_title":"Arsya.io","page_icon":":smiley:","layout":"centered"}
 st.set_page_config(**PAGE_CONFIG)
@@ -27,7 +29,19 @@ def main():
 
     		# Now do something with the image! For example, let's display it:
     		st.image(opencv_image, channels="BGR")
+		imagee()
 st.text(new_model)
+
+def imagee(opencv_image)
+	images = image.load_img(open_cv, target_size=(128, 128))    
+	x = image.img_to_array(images)
+	x = tf.image.rgb_to_grayscale(x)
+	x = np.expand_dims(x, axis=0)
+	x = x/255.0
+	if(model.predict_classes(x)[0][0] == 1):
+  		st.text(Haemorrhage)
+	else:
+  		st.text(Normal)
 
 if __name__ == '__main__':
 	main()
