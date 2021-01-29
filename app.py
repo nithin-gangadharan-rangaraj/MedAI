@@ -31,7 +31,7 @@ def main():
 
 
 def imagee(ba):
-	images = image.load_img(opencv_image, target_size=(128, 128))    
+	images = image.load_img(ba, target_size=(128, 128))    
 	x = image.img_to_array(images)
 	x = tf.image.rgb_to_grayscale(x)
 	x = np.expand_dims(x, axis=0)
