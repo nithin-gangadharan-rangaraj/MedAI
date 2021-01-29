@@ -1,6 +1,7 @@
 import streamlit as st
 import cv2
 import numpy as np
+import keras
 
 PAGE_CONFIG = {"page_title":"Arsya.io","page_icon":":smiley:","layout":"centered"}
 st.set_page_config(**PAGE_CONFIG)
@@ -13,7 +14,7 @@ background-size: cover;
 }
 </style>
 '''
-
+new_model = keras.models.load_model("model.h5")
 
 def main():
 	st.title("Hello Sannamyr!")
@@ -29,3 +30,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
