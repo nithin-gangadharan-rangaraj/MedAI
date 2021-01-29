@@ -14,7 +14,7 @@ background-size: cover;
 }
 </style>
 '''
-new_model = keras.models.load_model("model.h5")
+new_model = keras.models.load_model("haemorrhage_model.h5")
 
 def main():
 	st.title("Hello Sannamyr!")
