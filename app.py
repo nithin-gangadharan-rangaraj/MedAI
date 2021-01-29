@@ -27,6 +27,7 @@ def main():
 
     		# Now do something with the image! For example, let's display it:
     		st.image(opencv_image, channels="BGR")
+		st.text(new_model)
 
 if __name__ == '__main__':
 	main()
