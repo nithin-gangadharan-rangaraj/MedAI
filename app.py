@@ -27,11 +27,11 @@ def main():
 		file_bytes=np.asarray(ba,dtype=np.uint8)
 		opencv_image=cv2.imdecode(file_bytes,1)
 		st.image(opencv_image,channels="BGR")
-		imagee(ba)    		
+		imagee(file_bytes)    		
 
 
-def imagee(ba):
-	images = image.load_img(ba, target_size=(128, 128))    
+def imagee(file_bytes):
+	images = image.load_img(file_bytes, target_size=(128, 128))    
 	x = image.img_to_array(images)
 	x = tf.image.rgb_to_grayscale(x)
 	x = np.expand_dims(x, axis=0)
