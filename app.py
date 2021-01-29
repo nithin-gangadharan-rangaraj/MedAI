@@ -30,7 +30,7 @@ def main():
 	
 st.text(new_model)
 
-def imagee(opencv_image)
+def imagee(opencv_image):
 	images = image.load_img(opencv_image, target_size=(128, 128))    
 	x = image.img_to_array(images)
 	x = tf.image.rgb_to_grayscale(x)
