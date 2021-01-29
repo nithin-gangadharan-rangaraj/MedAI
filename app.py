@@ -19,16 +19,14 @@ background-size: cover;
 new_model = keras.models.load_model("haemorrhage_model.h5")
 
 def main():
-	st.title("Hello Sannamyr!")
-	st.markdown(html, unsafe_allow_html=True)
-	uploaded_file = st.file_uploader("Choose a image file", type="jpg")
+	st.title("MedAI")
+	st.markdown(html,unsafe_allow_html=True)
+	uploaded_file=st.file_uploader("Choose a image file",type="jpg")
 	if uploaded_file is not None:
-    		# Convert the file to an opencv image.
-    		file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-    		opencv_image = cv2.imdecode(file_bytes, 1)
-		imagee(opencv_image)
-    		# Now do something with the image! For example, let's display it:
-    		st.image(opencv_image, channels="BGR")
+		file_bytes=np.asarray(bytearray(uploaded_file.read()),dtype=np.uint8)
+		opencv_image=cv2.imdecode(file_bytes,1)
+		st.image(opencv_image,channels="BGR"
+			 imagee(opencv_image)    		
 	
 st.text(new_model)
 
