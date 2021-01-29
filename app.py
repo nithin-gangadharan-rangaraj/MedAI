@@ -27,8 +27,7 @@ def main():
 		opencv_image=cv2.imdecode(file_bytes,1)
 		st.image(opencv_image,channels="BGR"
 		imagee(opencv_image)    		
-	
-st.text(new_model)
+
 
 def imagee(opencv_image):
 	images = image.load_img(opencv_image, target_size=(128, 128))    
