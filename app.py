@@ -21,7 +21,7 @@ new_model = keras.models.load_model("haemorrhage_model.h5")
 def main():
 	st.title("MedAI")
 	st.markdown(html,unsafe_allow_html=True)
-	uploaded_file=st.file_uploader("Choose a image file",type="jpg")
+	uploaded_file=st.file_uploader("Choose a image file",type="png")
 	if uploaded_file is not None:
 		file_bytes=np.asarray(bytearray(uploaded_file.read()),dtype=np.uint8)
 		opencv_image=cv2.imdecode(file_bytes,1)
