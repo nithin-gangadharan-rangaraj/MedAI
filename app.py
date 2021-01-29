@@ -23,13 +23,14 @@ def main():
 	st.markdown(html,unsafe_allow_html=True)
 	uploaded_file=st.file_uploader("Choose a image file",type="png")
 	if uploaded_file is not None:
-		file_bytes=np.asarray(bytearray(uploaded_file.read()),dtype=np.uint8)
+		ba=bytearray(uploaded_file.read())
+		file_bytes=np.asarray(ba,dtype=np.uint8)
 		opencv_image=cv2.imdecode(file_bytes,1)
 		st.image(opencv_image,channels="BGR")
-		imagee(opencv_image)    		
+		imagee(ba)    		
 
 
-def imagee(opencv_image):
+def imagee(ba):
 	images = image.load_img(opencv_image, target_size=(128, 128))    
 	x = image.img_to_array(images)
 	x = tf.image.rgb_to_grayscale(x)
